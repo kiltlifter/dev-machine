@@ -1,0 +1,17 @@
+---
+
+  # Download the java jdk
+  - get_url: url=https://dl.dropboxusercontent.com/u/23508972/jdk-7u67-linux-x64.rpm dest=/tmp/setup/jdk-7u67-linux-x64.rpm
+  # install java jdk
+  - command: rpm -ivh /tmp/setup/jdk-7u67-linux-x64.rpm
+    sudo: true
+  # Download apache maven 3.2.3
+  - name: Download apache-maven-3.2.3
+    get_url: url=http://apache.spinellicreations.com/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.zip dest=/tmp/setup/apache-maven-3.2.3-bin.zip
+  # Move the maven binary to the devel user's directory
+  - command: unzip /tmp/setup/apache-maven-3.2.3-bin.zip -d /usr/lib/
+    sudo: true
+  # Replace the user's .bashrc
+  - command: cp -f /tmp/setup/bashrc-redhat /home/{{username}}/.bashrc
+  # Source the new .bashrc
+  - shell: source /home/{{username}}/.bashrc

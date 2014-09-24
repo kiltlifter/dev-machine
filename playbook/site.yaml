@@ -1,0 +1,24 @@
+---
+
+- name:  Dev Environment Playbook
+  hosts: vagrant
+  user:  vagrant
+  vars:
+    username: vagrant
+
+  tasks:
+    # Include statements for RedHat based machines
+    - include: machine-setup.yaml
+      when: ansible_os_family == "RedHat"
+    - include: postgres-configure.yaml
+      when: ansible_os_family == "RedHat"
+    - include: maven-setup.yaml
+      when: ansible_os_family == "RedHat"
+    - include: rpm-tools.yaml
+      when: ansible_os_family == "RedHat"
+    - include: security-tools.yaml
+      when: ansible_os_family == "RedHat"
+    - include: misc-dev-tools.yaml
+      when: ansible_os_family == "RedHat"
+    # Include statements for Debian based machines
+    - include: cleanup.yaml

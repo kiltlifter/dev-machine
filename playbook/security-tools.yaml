@@ -1,0 +1,30 @@
+---
+
+  # A collection of security tools for RedHat
+  - yum: name=setools state=present
+    sudo: true
+
+  - yum: name=libsemanage state=present
+    sudo: true
+
+  - yum: name=libsemanage-devel state=present
+    sudo: true
+
+  - yum: name=setools-console state=present
+    sudo: true
+
+  - yum: name=setools-devel state=present
+    ignore_errors: yes
+    sudo: true
+
+  - yum: name=setools-libs state=present
+    sudo: true
+
+  - yum: name=policycoreutils-python state=present
+    sudo: true
+
+  - yum: name=nmap state=present
+    sudo: true
+
+  - yum: name=libpcap-devel state=present
+    sudo: true

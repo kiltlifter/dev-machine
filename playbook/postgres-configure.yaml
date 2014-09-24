@@ -1,0 +1,32 @@
+---
+  # Ensure postgres is installed
+  - yum: name=postgresql state=present
+    sudo: true
+  - yum: name=postgresql-libs state=present
+    sudo: true
+  - yum: name=postgresql-devel state=present
+    sudo: true
+  - yum: name=postgresql-server state=present
+    sudo: true
+  - yum: name=postgresql-contrib state=present
+    sudo: true
+  - yum: name=pgadmin3 state=present
+    sudo: true
+  # Initializing the postgres database
+  - command: service postgresql initdb
+    sudo: true
+    # Copy the pg_hba.conf and postgresql.conf to /var/lib/pgsql/data
+  - command: cp -f /tmp/setup/pg_hba.conf /var/lib/pgsql/data
+    sudo: true
+  - command: cp -f /tmp/setup/postgresql.conf /var/lib/pgsql/data
+    sudo: true
+  - command: chown -R postgres:postgres /var/lib/pgsql/data
+    sudo: true
+  # Start the postgresql service
+  #- name: Starting postgresql
+  #  service: name=postgresql state=started
+  #  sudo: true
+  # Start postgresql on boot
+  #- name: Start postgesql on boot
+  #  command: chkconfig postgresql on
+  #  sudo: true

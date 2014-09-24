@@ -1,0 +1,17 @@
+---
+
+  #Install tools for building rpms
+  - yum: name=rpm-build state=present
+    sudo: true
+
+  - yum: name=rpmdevtools state=present
+    sudo: true
+
+  - yum: name=mock state=present
+    sudo: true
+
+  - yum: name=redhat-rpm-config state=present
+    sudo: true
+
+  - yum: name=createrepo state=present
+    sudo: true

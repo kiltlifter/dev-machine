@@ -1,0 +1,5 @@
+---
+
+  # Remove the setup directory
+  - name: Removing the setup directory
+    command: rm -rf /tmp/setup

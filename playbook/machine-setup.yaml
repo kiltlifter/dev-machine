@@ -1,0 +1,12 @@
+---
+
+  # Create a directory to work out of
+  - command: /bin/mkdir /tmp/setup
+  # Copy over the project dependencies
+  - copy: src=../dependencies/ dest=/tmp/setup
+  # Install the epel rpm
+  - command: /bin/rpm -Uvh /tmp/setup/epel-release-6-8.noarch.rpm
+    sudo: true
+  # Update packages afterwards
+  - command: /usr/bin/yum -y update
+    sudo: true
