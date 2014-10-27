@@ -28,3 +28,7 @@
 
   - yum: name=libpcap-devel state=present
     sudo: true
+
+  - yum: name=setroubleshoot state=present
+    ignore_errors: yes
+    sudo: true

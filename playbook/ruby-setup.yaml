@@ -1,0 +1,14 @@
+---
+
+  # Download the ruby version manager script
+  - command: curl -sSL https://get.rvm.io --output rvm-install.sh
+  # Run the downloaded script and install ruby 2.0.0
+  - command: bash rvm-install.sh --ruby=2.0.0
+  # Source new environment variables
+  - command: source /home/{{username}}/.rvm/scripts/rvm
+    ignore_errors: yes
+  # Remove the downloaded file.
+  - command: rm -f rvm-install.sh
+  # Useful tool for creating rpm's
+  - command: gem install gem2rpm
+    sudo: true

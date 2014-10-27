@@ -20,5 +20,7 @@
       when: ansible_os_family == "RedHat"
     - include: misc-dev-tools.yaml
       when: ansible_os_family == "RedHat"
+    - include: ruby-setup.yaml
+      when: ansible_os_family == "RedHat"
     # Include statements for Debian based machines
     - include: cleanup.yaml
