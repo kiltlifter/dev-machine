@@ -11,4 +11,4 @@
   - command: rm -f rvm-install.sh
   # Useful tool for creating rpm's
   - command: gem install gem2rpm
-    sudo: true
+    ignore_errors: yes
