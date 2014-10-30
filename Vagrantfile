@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable provisioning with Ansible
   config.vm.define 'vagrant-centos' do |machine|
     machine.vm.hostname = 'vagrant-centos.local' 
-    machine.vm.network "private_network", ip: "192.168.2.222"
+    machine.vm.network "private_network", ip: "192.168.5.222"
     machine.vm.provision :ansible do |ansible|
       ansible.playbook = "playbook/site.yaml"
       ansible.inventory_path = "./hosts"
